@@ -1,5 +1,7 @@
 package br.com.caelum.agiletickets.controllers;
 
+import static br.com.caelum.vraptor.view.Results.status;
+
 import java.math.BigDecimal;
 import java.text.NumberFormat;
 import java.util.List;
@@ -10,11 +12,12 @@ import javax.inject.Inject;
 import org.joda.time.LocalDate;
 import org.joda.time.LocalTime;
 
+import com.google.common.base.Strings;
+
 import br.com.caelum.agiletickets.domain.Agenda;
 import br.com.caelum.agiletickets.domain.DiretorioDeEstabelecimentos;
 import br.com.caelum.agiletickets.domain.precos.CalculadoraDePrecos;
 import br.com.caelum.agiletickets.models.Espetaculo;
-import br.com.caelum.agiletickets.models.Estabelecimento;
 import br.com.caelum.agiletickets.models.Periodicidade;
 import br.com.caelum.agiletickets.models.Sessao;
 import br.com.caelum.vraptor.Controller;
@@ -24,10 +27,6 @@ import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.validator.SimpleMessage;
 import br.com.caelum.vraptor.validator.Validator;
-
-import com.google.common.base.Strings;
-
-import static br.com.caelum.vraptor.view.Results.status;
 
 @Controller
 public class EspetaculosController {
