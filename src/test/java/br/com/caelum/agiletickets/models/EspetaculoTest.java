@@ -107,6 +107,31 @@ public class EspetaculoTest {
 		assertEquals(4, sessoes.size());
 		
 	}
+	
+	@Test
+	public void DeveCadastrarUmaSessaoSemanalSeIntervaloEntreDatasNaoForMaiorQueSeteDias() {
+		Espetaculo espetaculo = new Espetaculo();
+
+		LocalDate inicio = new LocalDate();
+		LocalDate fim = new LocalDate().plusDays(5);
+
+		List<Sessao> sessoes = espetaculo.criaSessoes(inicio, fim, new LocalTime(), Periodicidade.SEMANAL);
+
+		assertEquals(1, sessoes.size());
+
+	}
+	
+	@Test
+	public void DeveCadastrarUmaSessaoACadaSemanaSeForSemanalETiverIntervaloDeQuatroSemanasEntreDuasDatas(){
+		Espetaculo espetaculo = new Espetaculo();
+
+		LocalDate inicio = new LocalDate();
+		LocalDate fim = new LocalDate().plusWeeks(4);
+
+		List<Sessao> sessoes = espetaculo.criaSessoes(inicio, fim, new LocalTime(), Periodicidade.SEMANAL);
+
+		assertEquals(4, sessoes.size());
+	}
 
 
 }
