@@ -115,14 +115,12 @@ public class Espetaculo {
 			
 		}else if (periodicidade.equals(Periodicidade.SEMANAL)){
 			
-			int intervaloSemanal = Weeks.weeksBetween(inicio, fim).getWeeks(); 
+			int intervaloSemanal = Weeks.weeksBetween(inicio, fim).getWeeks();
 			
 			for (int i = 0; i <= intervaloSemanal; i++) {
 				sessoes.add(new Sessao());
 			}
 		}
-		
-		
 		
 		return sessoes;
 	}
