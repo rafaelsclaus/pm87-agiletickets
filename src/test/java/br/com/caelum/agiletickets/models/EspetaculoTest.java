@@ -134,7 +134,7 @@ public class EspetaculoTest {
 	}
 
 	@Test(expected = IllegalArgumentException.class)
-	public void NaoDeveAdicionarUmaSessaoQuandoADataFinalForMenorQueADataInicial(){
+	public void NaoDeveAdicionarUmaSessaoQuandoForDiariaQuandoADataFinalForMenorQueADataInicial(){
 		Espetaculo espetaculo = new Espetaculo();
 
 		LocalDate inicio = new LocalDate();
