@@ -134,13 +134,24 @@ public class EspetaculoTest {
 	}
 
 	@Test(expected = IllegalArgumentException.class)
-	public void NaoDeveAdicionarUmaSessaoQuandoForDiariaQuandoADataFinalForMenorQueADataInicial(){
+	public void NaoDeveAdicionarUmaSessaoDiariaSeADataFinalForMenorQueADataInicial(){
 		Espetaculo espetaculo = new Espetaculo();
 
 		LocalDate inicio = new LocalDate();
 		LocalDate fim = new LocalDate().minusDays(3);
 
 		List<Sessao> sessoes = espetaculo.criaSessoes(inicio, fim, new LocalTime(), Periodicidade.DIARIA);
+
+	}
+	
+	@Test(expected = IllegalArgumentException.class)
+	public void NaoDeveAdicionarUmaSessaoSemanalSeADataFinalForMenorQueADataInicial(){
+		Espetaculo espetaculo = new Espetaculo();
+
+		LocalDate inicio = new LocalDate();
+		LocalDate fim = new LocalDate().minusWeeks(3);
+
+		List<Sessao> sessoes = espetaculo.criaSessoes(inicio, fim, new LocalTime(), Periodicidade.SEMANAL);
 
 	}
 }
