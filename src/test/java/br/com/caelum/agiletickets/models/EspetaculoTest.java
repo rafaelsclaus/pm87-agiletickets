@@ -4,6 +4,7 @@ import static org.junit.Assert.*;
 
 import java.util.List;
 
+import org.joda.time.Days;
 import org.joda.time.LocalDate;
 import org.joda.time.LocalTime;
 import org.junit.Test;
@@ -93,6 +94,19 @@ public class EspetaculoTest {
 		assertEquals(1,sessoes.size());
 	}
 	
+	@Test
+	public void DeveCadastrarUmaSessaoPorDiaSeForDiarioETiverUmIntervaloDeQuatroDiasEntreDuasDatas(){
+		
+		Espetaculo espetaculo = new Espetaculo();
+		
+		LocalDate inicio = new LocalDate();
+		LocalDate fim = new LocalDate().plusDays(3);
+		
+		List<Sessao> sessoes = espetaculo.criaSessoes(inicio, fim, new LocalTime(), Periodicidade.DIARIA);
+		
+		assertEquals(4, sessoes.size());
+		
+	}
 
 
 }

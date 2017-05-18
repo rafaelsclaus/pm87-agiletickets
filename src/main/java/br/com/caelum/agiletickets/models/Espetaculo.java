@@ -15,6 +15,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 import org.joda.time.DateTime;
+import org.joda.time.Days;
 import org.joda.time.LocalDate;
 import org.joda.time.LocalTime;
 
@@ -102,13 +103,18 @@ public class Espetaculo {
 		// ALUNO: Não apague esse metodo. Esse sim será usado no futuro! ;)
 		
 		List<Sessao> sessoes = new ArrayList<Sessao>();
-		Sessao sessao = new Sessao();
 			
 		if ( periodicidade.equals(Periodicidade.DIARIA) ) {
 			
-			sessoes.add(sessao);
+			int intervaloPeriodo = Days.daysBetween(inicio, fim).getDays(); 
+			
+			for (int i = 0; i <= intervaloPeriodo; i++) {
+				sessoes.add(new Sessao());
+			}
 			
 		}else if (periodicidade.equals(Periodicidade.SEMANAL)){
+			
+			
 			
 			return null;
 		}
