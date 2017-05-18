@@ -133,4 +133,14 @@ public class EspetaculoTest {
 		assertEquals(4, sessoes.size());
 	}
 
+	@Test(expected = IllegalArgumentException.class)
+	public void NaoDeveAdicionarUmaSessaoQuandoADataFinalForMenorQueADataInicial(){
+		Espetaculo espetaculo = new Espetaculo();
+
+		LocalDate inicio = new LocalDate();
+		LocalDate fim = new LocalDate().minusDays(3);
+
+		List<Sessao> sessoes = espetaculo.criaSessoes(inicio, fim, new LocalTime(), Periodicidade.DIARIA);
+
+	}
 }
