@@ -18,6 +18,7 @@ import org.joda.time.DateTime;
 import org.joda.time.Days;
 import org.joda.time.LocalDate;
 import org.joda.time.LocalTime;
+import org.joda.time.Weeks;
 
 @Entity
 public class Espetaculo {
@@ -114,9 +115,11 @@ public class Espetaculo {
 			
 		}else if (periodicidade.equals(Periodicidade.SEMANAL)){
 			
+			int intervaloSemanal = Weeks.weeksBetween(inicio, fim).getWeeks(); 
 			
-			
-			return null;
+			for (int i = 0; i <= intervaloSemanal; i++) {
+				sessoes.add(new Sessao());
+			}
 		}
 		
 		
