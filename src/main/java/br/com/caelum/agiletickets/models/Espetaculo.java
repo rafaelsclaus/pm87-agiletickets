@@ -121,6 +121,10 @@ public class Espetaculo {
 			
 			int intervaloSemanal = Weeks.weeksBetween(inicio, fim).getWeeks();
 			
+			if(intervaloSemanal < 0){
+				throw new IllegalArgumentException();
+			}
+			
 			for (int i = 0; i <= intervaloSemanal; i++) {
 				sessoes.add(new Sessao());
 			}
