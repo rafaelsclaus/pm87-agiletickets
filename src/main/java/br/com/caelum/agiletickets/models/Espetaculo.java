@@ -109,6 +109,10 @@ public class Espetaculo {
 			
 			int intervaloPeriodo = Days.daysBetween(inicio, fim).getDays(); 
 			
+			if(intervaloPeriodo < 0){
+				throw new IllegalArgumentException();
+			}
+			
 			for (int i = 0; i <= intervaloPeriodo; i++) {
 				sessoes.add(new Sessao());
 			}
