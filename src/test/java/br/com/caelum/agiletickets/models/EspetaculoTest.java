@@ -126,7 +126,7 @@ public class EspetaculoTest {
 		Espetaculo espetaculo = new Espetaculo();
 
 		LocalDate inicio = new LocalDate();
-		LocalDate fim = new LocalDate().plusWeeks(3);
+		LocalDate fim = new LocalDate().plusWeeks(10);
 
 		List<Sessao> sessoes = espetaculo.criaSessoes(inicio, fim, new LocalTime(), Periodicidade.SEMANAL);
 
@@ -151,7 +151,7 @@ public class EspetaculoTest {
 		LocalDate inicio = new LocalDate();
 		LocalDate fim = new LocalDate().minusWeeks(3);
 
-		List<Sessao> sessoes = espetaculo.criaSessoes(inicio, fim, new LocalTime(), Periodicidade.DIARIA);
+		List<Sessao> sessoes = espetaculo.criaSessoes(inicio, fim, new LocalTime(), Periodicidade.SEMANAL);
 
 	}
 }
