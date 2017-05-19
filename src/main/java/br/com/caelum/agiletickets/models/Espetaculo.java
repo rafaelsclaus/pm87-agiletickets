@@ -108,29 +108,26 @@ public class Espetaculo {
 		if ( periodicidade.equals(Periodicidade.DIARIA) ) {
 			
 			int intervaloPeriodo = Days.daysBetween(inicio, fim).getDays(); 
-			
-			if(intervaloPeriodo < 0){
-				throw new IllegalArgumentException();
-			}
-			
-			for (int i = 0; i <= intervaloPeriodo; i++) {
-				sessoes.add(new Sessao());
-			}
+			adicaoDeSessoes(sessoes, intervaloPeriodo);
 			
 		}else if (periodicidade.equals(Periodicidade.SEMANAL)){
 			
 			int intervaloSemanal = Weeks.weeksBetween(inicio, fim).getWeeks();
-			
-			if(intervaloSemanal < 0){
-				throw new IllegalArgumentException();
-			}
-			
-			for (int i = 0; i <= intervaloSemanal; i++) {
-				sessoes.add(new Sessao());
-			}
+			adicaoDeSessoes(sessoes, intervaloSemanal);
 		}
 		
 		return sessoes;
+	}
+
+	private void adicaoDeSessoes(List<Sessao> sessoes, int intervalo) {
+		
+		if(intervalo < 0){
+			throw new IllegalArgumentException();
+		}
+		
+		for (int i = 0; i <= intervalo; i++) {
+			sessoes.add(new Sessao());
+		}
 	}
 	
 	public boolean Vagas(int qtd, int min)
