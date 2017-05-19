@@ -83,7 +83,7 @@
           target: war
          ================================= -->
 	<target name="war" description="--> generate war file" depends="test">
-		<move file="${basedir}/META-INF/${persistence}"
+		<move file="${build.dir}/META-INF/${persistence}"
 			tofile="${build.dir}/META-INF/persistense.xml"/>
 		<war destfile="${output.dir}/${project.name}.war">
 			<zipfileset dir="${webapp.dir}" />
